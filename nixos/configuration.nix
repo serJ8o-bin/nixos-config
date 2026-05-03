@@ -66,6 +66,10 @@
     alsa.support32Bit = true;
     pulse.enable = true;
   };
+  #Noise supp 
+
+  
+
 
   # Polkit
   security.polkit.enable = true;
@@ -99,6 +103,9 @@
     discord
     btop
     wlogout
+
+    rnnoise-plugin
+    easyeffects
   ];
 
   # Home Manager

@@ -153,6 +153,29 @@ in {
   };
 };
 
+  # Voice
+  services.easyeffects.enable = true;
+  xdg.configFile."easyeffects/input/noisemc.json".text = ''
+{
+    "input": {
+        "blocklist": [],
+        "plugins_order": [
+            "rnnoise#0"
+        ],
+        "rnnoise#0": {
+            "bypass": false,
+            "enable-vad": true,
+            "input-gain": 0.0,
+            "model-name": "",
+            "output-gain": 0.0,
+            "release": 20.0,
+            "use-standard-model": true,
+            "vad-thres": 50.0,
+            "wet": 0.0
+        }
+    }
+}
+'';
 
 
   wayland.windowManager.sway = {

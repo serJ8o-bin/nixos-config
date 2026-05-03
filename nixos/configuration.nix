@@ -7,9 +7,12 @@
   ];
   
   # Bootloader
+
+  # fuck systemd virus exploit
   #boot.loader.systemd-boot.enable = true;
-  #boot.loader.efi.canTouchEfiVariables = true;
-  #boot.kernelPackages = pkgs.linuxPackages_latest;
+
+  
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   boot.loader = {
     efi.canTouchEfiVariables = true;
@@ -78,6 +81,8 @@
   # Fonts
   fonts.packages = with pkgs; [
     jetbrains-mono
+    nerd-fonts.fira-code
+    nerd-fonts.jetbrains-mono
   ];
 
   # packages
@@ -90,6 +95,7 @@
     nemo
    
     telegram-desktop
+    cowsay
     discord
     btop
     wlogout

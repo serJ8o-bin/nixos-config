@@ -71,6 +71,8 @@ in {
   };
 
   home.packages = with pkgs; [
+
+    #shit
     foot
     wofi
     waybar
@@ -82,6 +84,7 @@ in {
     pavucontrol
     playerctl
 
+    #themes
     libsForQt5.qt5ct
     kdePackages.qt6ct
     adwaita-qt
@@ -90,7 +93,12 @@ in {
     adw-gtk3
     gruvbox-dark-gtk
     andromeda-gtk-theme
+    papirus-icon-theme
     
+    #cursor
+    banana-cursor
+    
+  
     swaybg
     discord
     steam
@@ -102,12 +110,16 @@ in {
     nwg-look
     gsettings-desktop-schemas
 
+
+
     qbittorrent
     vlc
     
     kdePackages.qtwayland
     kdePackages.qt6ct
     libsForQt5.qtwayland
+
+
   ];
   
   #fish 
@@ -122,6 +134,26 @@ in {
   };
   #foot fish
   programs.foot.settings.main.shell = "${pkgs.fish}/bin/fish";
+
+  home.pointerCursor = {
+  gtk.enable = true;
+ 
+  x11.enable = true;
+  package = pkgs.bibata-cursors;
+  name = "Bibata-Modern-Classic";
+  size = 24;
+};
+
+
+  gtk = {
+  enable = true;
+  cursorTheme = {
+   package = pkgs.bibata-cursors;
+   name = "Bibata-Modern-Classic";
+  };
+};
+
+
 
   wayland.windowManager.sway = {
     enable = true;
@@ -433,22 +465,25 @@ in {
     '';
   };
 
+
   services.mako = {
     enable = true;
-    backgroundColor = "#000000ff";
-    textColor = "#ffffff";
-    borderColor = "#ffffff";
-    borderSize = 2;
-    padding = "10";
-    output = "HDMI-A-1";
-    defaultTimeout = 5000;
+    settings = {
+      background-color = "#000000ff";
+      text-color = "#ffffff";
+      border-color = "#ffffff";
+      border-size = 2;
+      padding = "10";
+      output = "HDMI-A-1";
+      default-timeout = 5000;
+    };
   };
 
   programs.foot = {
     enable = true;
     settings = {
       main = {
-        font = "JetBrains Mono:size=11";
+        font = "JetBrains Mono:size=10";
       };
       colors-dark = {
         background = "000000";
@@ -457,6 +492,147 @@ in {
     };
   };
 
+  # fastfetch
+ programs.fastfetch = {
+  enable = true;
+  settings = {
+    logo = {
+      type = "builtin";
+      height = 15;
+      width = 30;
+      padding = {
+        top = 5;
+        left = 3;
+      };
+    };
+    modules = [
+      "break"
+      {
+        type = "custom";
+        format = "┌──────────────────────Hardware──────────────────────┐";
+      }
+      {
+        type = "host";
+        key = "󰌢  PC";
+        keyColor = "green";
+      }
+      {
+        type = "cpu";
+        key = "│ ├󰻠 ";
+        keyColor = "green";
+      }
+      {
+        type = "gpu";
+        key = "│ ├󰍹 ";
+        keyColor = "green";
+      }
+      {
+        type = "memory";
+        key = "│ ├󰑭 ";
+        keyColor = "green";
+      }
+      {
+        type = "disk";
+        key = "└ └󰋊 ";
+        keyColor = "green";
+      }
+      {
+        type = "custom";
+        format = "└────────────────────────────────────────────────────┘";
+      }
+      "break"
+      {
+        type = "custom";
+        format = "┌──────────────────────Software──────────────────────┐";
+      }
+      {
+        type = "os";
+        key = "  OS";
+        keyColor = "yellow";
+      }
+      {
+        type = "kernel";
+        key = "│ ├󰌽 ";
+        keyColor = "yellow";
+      }
+      {
+        type = "bios";
+        key = "│ ├󰖡 ";
+        keyColor = "yellow";
+      }
+      {
+        type = "packages";
+        key = "│ ├󰏗 ";
+        keyColor = "yellow";
+      }
+      {
+        type = "shell";
+        key = "└ └󰞷 ";
+        keyColor = "yellow";
+      }
+      "break"
+      {
+        type = "de";
+        key = "󰧨  DE";
+        keyColor = "blue";
+      }
+      {
+        type = "lm";
+        key = "│ ├󰍁 ";
+        keyColor = "blue";
+      }
+      {
+        type = "wm";
+        key = "│ ├󱂬 ";
+        keyColor = "blue";
+      }
+      {
+        type = "wmtheme";
+        key = "│ ├󰉦 ";
+        keyColor = "blue";
+      }
+      {
+        type = "terminal";
+        key = "└ └󰆍 ";
+        keyColor = "blue";
+      }
+      {
+        type = "custom";
+        format = "└────────────────────────────────────────────────────┘";
+      }
+      "break"
+      {
+        type = "custom";
+        format = "┌────────────────────Uptime / Age / DT────────────────────┐";
+      }
+      {
+        type = "command";
+        key = "  ›  OS Age  ";
+        keyColor = "magenta";
+        text = "birth_install=$(stat -c %W /); current=$(date +%s); time_progression=$((current - birth_install)); days_difference=$((time_progression / 86400)); echo $days_difference days";
+      }
+      {
+        type = "uptime";
+        key = "  ›  Uptime  ";
+        keyColor = "magenta";
+      }
+      {
+        type = "datetime";
+        key = "  ›  DateTime  ";
+        keyColor = "magenta";
+      }
+      {
+        type = "custom";
+        format = "└─────────────────────────────────────────────────────────┘";
+      }
+      {
+        type = "colors";
+        paddingLeft = 2;
+        symbol = "circle";
+      }
+    ];
+  };
+};
 
 
   programs.home-manager.enable = true;

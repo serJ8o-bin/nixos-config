@@ -349,7 +349,6 @@ in {
       exec_always swaymsg workspace 10 && swaymsg move workspace to output DP-1 && swaymsg workspace 1
 
       exec_always "pkill waybar; waybar"
-      exec_always "pkill mako; mako"
       exec_always "pkill swaybg; apply-wallpaper"
 
       exec_always lxqt-policykit-agent

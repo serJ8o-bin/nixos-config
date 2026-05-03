@@ -131,5 +131,6 @@
   # fish
   programs.fish.enable = true;
   users.users.serj.shell = pkgs.fish;
+
 }
 

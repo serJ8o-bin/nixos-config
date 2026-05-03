@@ -119,6 +119,9 @@ in {
     kdePackages.qt6ct
     libsForQt5.qtwayland
 
+    astroterm
+    lavat
+
 
   ];
   
@@ -176,6 +179,16 @@ in {
     }
 }
 '';
+  #screenshots
+  services.flameshot = {
+  enable = true;
+  settings = {
+    General = {
+      showDesktopNotification = false;
+      showStartupLaunchMessage = false;
+    };
+  };
+};
 
 
   wayland.windowManager.sway = {
@@ -290,8 +303,8 @@ in {
         "XF86MonBrightnessDown" = "exec brightnessctl set 5%-";
         "XF86MonBrightnessUp" = "exec brightnessctl set 5%+";
 
-        "${mod}+Shift+s" = "exec flameshot gui";
-        "${mod}+Shift+p" = "exec flameshot screen";
+        "${mod}+Shift+s" = "exec flameshot gui -p ~/Pictures/";
+        "${mod}+Shift+p" = "exec flameshot screen -p ~/Pictures/";
 
         "${mod}+z" = "exec pavucontrol";
         "${mod}+w" = "exec select-wallpaper";
@@ -325,6 +338,12 @@ in {
 
       # Polkit agent floating rules
       for_window [app_id="^lxqt-policykit-agent$"] floating enable
+
+      # flameshot 
+      for_window [title="^flameshot gui "] floating enable
+      for_window [title="(?i)flameshot"] floating enable
+
+
       for_window [title="(?i)polkit"] floating enable
       for_window [title="(?i)authentication"] floating enable
       for_window [title="(?i)password"] floating enable

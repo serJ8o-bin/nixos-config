@@ -128,6 +128,7 @@
   environment.shellAliases = {
   ff = "fastfetch";
   nix-switch = "sudo nixos-rebuild switch";
+  gparted = "sudo -E gparted";
   };
 
   #files

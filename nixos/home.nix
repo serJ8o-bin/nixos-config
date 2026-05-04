@@ -110,6 +110,7 @@ in {
 
     qbittorrent
     vlc
+    gparted
     
     kdePackages.qtwayland
     kdePackages.qt6ct
@@ -117,6 +118,7 @@ in {
     astroterm
     lavat
     gamescope
+
 
 
   ];

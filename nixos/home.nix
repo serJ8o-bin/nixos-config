@@ -110,6 +110,7 @@ in {
 
     qbittorrent
     vlc
+    pkgs.imv
     gparted
     
     kdePackages.qtwayland

@@ -208,18 +208,17 @@ in {
       terminal = "foot";
       menu = "wofi --show drun --allow-images --insensitive";
 
-      output = {
-        "HDMI-A-1" = {
-          mode = "1920x1080@100Hz";
-          position = "0,0";
-        };
-        "DP-1" = {
-          mode = "1920x1080";
-          position = "1920,-480";
-          transform = "270";
-        };
-      };
-
+output = {
+  "HDMI-A-1" = {
+    mode = "1920x1080@100Hz";
+    position = "0,480";     # подняли основной на 480px
+  };
+  "DP-1" = {
+    mode = "1920x1080";
+    position = "1920,0";    # вертикальный начинается с Y=0
+    transform = "270";
+  };
+};
       input = {
         "*" = {
           xkb_layout = "us,ru";

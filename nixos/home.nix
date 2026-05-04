@@ -126,7 +126,7 @@ in {
   #fish 
   programs.fish = {
     enable = true;
-    interactiveShellInit = "set fish_greeting"; # Убирает текст при входе
+    interactiveShellInit = "set fish_greeting"; 
     shellAliases = {
       update = "sudo nixos-rebuild switch --flake /etc/nixos#nixos";
       c = "clear";

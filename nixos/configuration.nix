@@ -88,7 +88,19 @@
     nerd-fonts.fira-code
     nerd-fonts.jetbrains-mono
   ];
+# Steam
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = true;
+    gamescopeSession.enable = true;
+  };
 
+  # 32bit libs
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+  };
   # packages
   environment.systemPackages = with pkgs; [
     vim
@@ -100,7 +112,6 @@
    
     telegram-desktop
     cowsay
-    discord
     btop
     wlogout
 
@@ -119,7 +130,7 @@
   nix-switch = "sudo nixos-rebuild switch";
   };
 
-
+  #files
   services.gvfs.enable = true;
   services.udisks2.enable = true;
 
@@ -131,6 +142,13 @@
   # fish
   programs.fish.enable = true;
   users.users.serj.shell = pkgs.fish;
+
+  services.dbus.enable = true;
+  xdg.portal = {
+  enable = true;
+  wlr.enable = true; # Важно для Sway
+  extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+};
 
 }
 

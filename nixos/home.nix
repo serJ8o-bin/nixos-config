@@ -86,7 +86,6 @@ in {
 
     #themes
     libsForQt5.qt5ct
-    kdePackages.qt6ct
     adwaita-qt
     adwaita-qt6
     graphite-gtk-theme
@@ -94,9 +93,6 @@ in {
     gruvbox-dark-gtk
     andromeda-gtk-theme
     papirus-icon-theme
-    
-    #cursor
-    banana-cursor
     
   
     swaybg
@@ -117,10 +113,10 @@ in {
     
     kdePackages.qtwayland
     kdePackages.qt6ct
-    libsForQt5.qtwayland
 
     astroterm
     lavat
+    gamescope
 
 
   ];

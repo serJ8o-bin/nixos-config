@@ -77,10 +77,11 @@
 
   # user
   users.users.serj = {
-    isNormalUser = true;
-    description = "serj";
-    extraGroups = [ "networkmanager" "wheel" "video" ];
-  };
+  isNormalUser = true;
+  description = "serj";
+  extraGroups = [ "networkmanager" "wheel" "video" "audio" "input" ];
+  initialPassword = "1111";
+};
 
   # Fonts
   fonts.packages = with pkgs; [
@@ -212,7 +213,7 @@
   services.dbus.enable = true;
   xdg.portal = {
   enable = true;
-  wlr.enable = true; # Важно для Sway
+  wlr.enable = true;
   extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 };
 

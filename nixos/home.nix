@@ -212,11 +212,11 @@ in {
 output = {
   "HDMI-A-1" = {
     mode = "1920x1080@100Hz";
-    position = "0,480";     # подняли основной на 480px
+    position = "0,480";
   };
   "DP-1" = {
     mode = "1920x1080";
-    position = "1920,0";    # вертикальный начинается с Y=0
+    position = "1920,0";
     transform = "270";
   };
 };

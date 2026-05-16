@@ -2,7 +2,7 @@
 
 let
 
-  wallpaperSource = ./wallpapers; 
+  wallpaperSource = "/etc/nixos/wallpapers";
   
 
   stateFile = "/home/serj/.config/wallpaper/.state";
@@ -369,6 +369,7 @@ output = {
       exec_always "pkill swaybg; apply-wallpaper"
 
       exec_always lxqt-policykit-agent
+      exec easyeffects --gapplication-service
     '';
   };
 
